@@ -1,16 +1,12 @@
 import React from 'react';
-import '../styles/homepage.scss';
+import Directory from './directory/Directory';
+import './homepage.scss';
+import data from '../data/directoryData.js';
+
 const Homepage = () => {
   return (
     <div className="homepage">
-      <div className="directory-menu">
-        <div className="menu-item">
-          <div className="content">
-            <div className="title">Jackets</div>
-            <span className="subtitle">Shop Now</span>
-          </div>
-        </div>
-      </div>
+      <Directory data={data} />
     </div>
   );
 };
