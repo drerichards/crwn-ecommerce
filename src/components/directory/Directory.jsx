@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import MenuItem from '../menu-items/MenuItem';
+import DirectoryItem from './directory-items/DirectoryItem';
 import './directory.scss';
 
 const Directory = ({ data }) => {
@@ -9,7 +9,7 @@ const Directory = ({ data }) => {
     <div className="directory-menu">
       {directoryState.map(({ id, ...sectionProps }) => {
         return (
-          <MenuItem key={id} {...sectionProps} />
+          <DirectoryItem key={id} {...sectionProps} />
         );
       })}
     </div>
