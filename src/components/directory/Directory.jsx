@@ -7,9 +7,9 @@ const Directory = ({ data }) => {
 
   return (
     <div className="directory-menu">
-      {directoryState.map(({ title, id, imageUrl, size }) => {
+      {directoryState.map(({ id, ...sectionProps }) => {
         return (
-          <MenuItem title={title} imageUrl={imageUrl} size={size} key={id} />
+          <MenuItem key={id} {...sectionProps} />
         );
       })}
     </div>
