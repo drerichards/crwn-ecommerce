@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import Header from './components/header/Header'
+import Header from './components/subcomponents/header/Header'
 import HomePage from './components/pages/home/HomePage'
 import ShopPage from './components/pages/shop/ShopPage'
 import AuthenticationPage from './components/pages/authentication/AuthenticationPage'
