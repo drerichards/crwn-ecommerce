@@ -14,7 +14,7 @@ const PreviewItem = ({ item, addItem }) => {
                 style={{ backgroundImage: `url(${imageUrl})` }} />
             <div className="preview-footer">
                 <span className="name">{name}</span>
-                <span className="price">$${price}</span>
+                <span className="price">${price}</span>
             </div>
             <Button onClick={() => addItem(item)}>Add To Cart</Button>
         </div>
