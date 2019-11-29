@@ -2,9 +2,9 @@ import React from 'react'
 import SignIn from '../../components/pages/auth-page/signin/SignIn'
 import SignUp from '../../components/pages/auth-page/signup/SignUp'
 
-import './authentication-page.scss'
+import './auth-page.scss'
 
-const AuthenticationPage = () => {
+const AuthPage = () => {
     return (
         <div className="auth-page">
             <SignIn />
@@ -13,4 +13,4 @@ const AuthenticationPage = () => {
     )
 }
 
-export default AuthenticationPage
+export default AuthPage
