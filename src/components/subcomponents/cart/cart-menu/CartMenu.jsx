@@ -1,5 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
+
+import {createStructuredSelector} from 'reselect'
 import { selectCartItems } from '../../../../redux/cart/cartSelectors'
 
 import CartItem from '../cart-item/CartItem'
@@ -9,9 +11,14 @@ import './cart-menu.scss'
 const CartMenu = ({cartItems}) => {
     return (
         <div className='cart-menu'>
-            <div className="cart-items">
+            <div className={
+                cartItems.length === 0
+                ? 'cart-items empty-menu'
+                : 'cart-items'}>
                 {
-                    cartItems.map(cartItem => (
+                    cartItems.length === 0
+                    ? <h4>Add Items to Your Cart</h4>
+                    : cartItems.map(cartItem => (
                         <CartItem key={cartItem.id} item={cartItem} />
                     ))
                 }
@@ -21,7 +28,7 @@ const CartMenu = ({cartItems}) => {
     )
 }
 
-const mapStateToProps = state => ({
-    cartItems: selectCartItems(state)
+const mapStateToProps = createStructuredSelector({
+    cartItems: selectCartItems
 })
 export default connect(mapStateToProps)(CartMenu)
