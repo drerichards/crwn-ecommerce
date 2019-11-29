@@ -10,7 +10,7 @@ import './App.css'
 
 import { auth, createUserProfile } from './firebase/firebase.utils'
 
-import {createStructuredSelector} from 'reselect'
+import { createStructuredSelector } from 'reselect'
 import { setCurrentUser } from './redux/user/userActions'
 import { selectCurrentUser } from './redux/user/userSelectors'
 
@@ -18,7 +18,7 @@ class App extends Component {
   unsubscribeFromAuth = null
 
   componentDidMount() {
-    const {setCurrentUser} = this.props
+    const { setCurrentUser } = this.props
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
