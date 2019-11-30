@@ -17,12 +17,11 @@ export const selectShopCollections = createSelector(
     shop => shop.collections
 )
 
-
-export const selectCollection = collUrlParam => {
+export const selectCollection = collUrlParam => (
     createSelector(
         [selectShopCollections],
         collections => collections.find(
             collection => collection.id === COLLECTION_ID_MAP[collUrlParam]
         )
     )
-}
+)

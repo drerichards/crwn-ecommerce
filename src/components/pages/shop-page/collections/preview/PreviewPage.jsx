@@ -9,7 +9,7 @@ const PreviewPage = ({ title, items }) => (
             {
                 items
                     .filter((item, idx) => idx < 4)
-                    .map((item) => {
+                    .map(item => {
                         return <PreviewItem key={item.id} item={item} />
                     })
             }
