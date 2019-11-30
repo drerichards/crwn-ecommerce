@@ -1,23 +1,24 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
+import { selectDirectorySections } from '../../redux/directory/directorySelectors'
+
 import PreviewPage from '../../components/pages/shop-page/preview/PreviewPage'
-import shopData from '../../data/shopData'
 
-export default class ShopPage extends Component {
-    constructor(props) {
-        super(props)
-
-        this.state = { collections: shopData }
-    }
-
-    render() {
-        return (
-            <div className="shop-page">
-                {
-                    this.state.collections.map(({ id, ...collectionProps }) => {
-                        return <PreviewPage key={id} {...collectionProps} />
-                    })
-                }
-            </div>
-        )
-    }
+export const ShopPage = ({ sections }) => {
+    return (
+        <div className="shop-page">
+            {
+                sections.map(({ id, ...sectionProps }) => {
+                    return <PreviewPage key={id} {...sectionProps} />
+                })
+            }
+        </div>
+    )
 }
+
+const mapStateToProps = createStructuredSelector({
+    sections: selectDirectorySections
+})
+
+export default connect(mapStateToProps)(ShopPage)
