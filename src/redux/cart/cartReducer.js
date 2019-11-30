@@ -1,7 +1,11 @@
 import {
     CartActionTypes
 } from './cartActionTypes'
-import {addItemToCart, removeItemFromCart} from './cartUtils'
+import {
+    addItemToCart,
+    removeItemFromCart,
+    reduceDeleteItemFromCart
+} from './cartUtils'
 
 
 const INITIAL_STATE = {
@@ -25,6 +29,11 @@ const cartReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 cartItems: removeItemFromCart(state.cartItems, action.payload.id)
+            }
+        case CartActionTypes.REDUCE_DELETE_ITEM:
+            return {
+                ...state,
+                cartItems: reduceDeleteItemFromCart(state.cartItems, action.payload)
             }
         default:
             return state
