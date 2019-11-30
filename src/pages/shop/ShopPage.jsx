@@ -1,16 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
-import { selectDirectorySections } from '../../redux/directory/directorySelectors'
+import { selectShopCollections } from '../../redux/shop/shopSelectors'
 
 import PreviewPage from '../../components/pages/shop-page/preview/PreviewPage'
 
-export const ShopPage = ({ sections }) => {
+export const ShopPage = ({ collections }) => {
     return (
         <div className="shop-page">
             {
-                sections.map(({ id, ...sectionProps }) => {
-                    return <PreviewPage key={id} {...sectionProps} />
+                collections.map(({ id, ...collectionProps }) => {
+                    return <PreviewPage key={id} {...collectionProps} />
                 })
             }
         </div>
@@ -18,7 +18,7 @@ export const ShopPage = ({ sections }) => {
 }
 
 const mapStateToProps = createStructuredSelector({
-    sections: selectDirectorySections
+    collections: selectShopCollections
 })
 
 export default connect(mapStateToProps)(ShopPage)
