@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addItem } from '../../../../../redux/cart/cartActions'
+import { addItem } from '../../../../../../redux/cart/cartActions'
 
-import Button from '../../../../library/button/Button'
+import Button from '../../../../../library/button/Button'
 
 import './preview-item.scss'
 
