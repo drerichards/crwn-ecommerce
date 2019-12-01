@@ -1,9 +1,9 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth'
-import {config} from '../keys'
+import {FIREBASE_CONFIG} from '../keys'
 
-firebase.initializeApp(config)
+firebase.initializeApp(FIREBASE_CONFIG)
 
 export const auth = firebase.auth()
 export const firestore = firebase.firestore()
