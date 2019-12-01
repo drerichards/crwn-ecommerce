@@ -8,21 +8,23 @@ import CheckoutPage from './pages/checkout/CheckoutPage'
 import AuthPage from './pages/auth/AuthPage'
 import './App.css'
 
-import { auth, createUserProfile } from './firebase/firebase.utils'
+import { auth, createUserProfile, addCollAndDocs } from './firebase/firebase.utils'
 
 import { createStructuredSelector } from 'reselect'
 import { setCurrentUser } from './redux/user/userActions'
 import { selectCurrentUser } from './redux/user/userSelectors'
+import { selectCollectionsForPreview } from './redux/shop/shopSelectors'
 
 class App extends Component {
   unsubscribeFromAuth = null
 
   componentDidMount() {
-    const { setCurrentUser } = this.props
+    const { setCurrentUser, collArr } = this.props
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfile(userAuth)
+
         userRef.onSnapshot(snapShot => {
           setCurrentUser({
             id: snapShot.id,
@@ -31,6 +33,7 @@ class App extends Component {
         })
       }
       setCurrentUser(userAuth)
+      addCollAndDocs('collections', collArr.map(({ title, items }) => ({ title, items })))
     })
   }
 
@@ -60,7 +63,8 @@ class App extends Component {
 
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
+  collArr: selectCollectionsForPreview
 })
 
 const mapDispatchToProps = dispatch => ({
