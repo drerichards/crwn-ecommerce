@@ -9,14 +9,13 @@ export const selectShopCollections = createSelector(
     shop => shop.collections
 )
 
-export const selectCollection = collUrlParam => (
-    createSelector(
-        [selectShopCollections],
-        collections => collections[collUrlParam]
-    )
-)
+export const selectCollection = collectionUrlParam =>
+  createSelector(
+    [selectShopCollections],
+    collections => collections[collectionUrlParam]
+  )
 
-export const selectCollectionsForPreview = createSelector(
-    [selectCollection],
+  export const selectCollectionsForPreview = createSelector(
+    [selectShopCollections],
     collections => Object.keys(collections).map(key => collections[key])
-)
+  )
