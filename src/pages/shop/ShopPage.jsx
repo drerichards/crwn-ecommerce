@@ -8,7 +8,7 @@ import Spinner from '../../components/library/spinner/Spinner'
 
 import { firestore, convertCollectionsSnapshotToMap } from '../../firebase/firebase.utils'
 
-import { updateCollections } from '../../redux/shop/shopActions'
+// import { updateCollections } from '../../redux/shop/shopActions'
 
 
 const CollectionsPreviewSpinner = Spinner(CollectionsPreview)
@@ -20,7 +20,7 @@ class ShopPage extends Component {
     }
 
     componentDidMount() {
-        const { updateCollections } = this.props
+        // const { updateCollections } = this.props
 
     }
 
@@ -48,7 +48,7 @@ class ShopPage extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    updateCollections: collMap => dispatch(updateCollections(collMap))
+    // updateCollections: collMap => dispatch(updateCollections(collMap))
 })
 
 export default connect(null, mapDispatchToProps)(ShopPage)
