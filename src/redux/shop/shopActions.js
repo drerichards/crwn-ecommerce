@@ -30,3 +30,8 @@ export const fetchCollectionsFailure = errMessage => ({
     type: ShopActionTypes.FETCH_COLLECTIONS_FAILURE,
     payload: errMessage
 })
+
+export const updateCollections = collectionsMap => ({
+    type: ShopActionTypes.UPDATE_COLLECTIONS,
+    payload: collectionsMap
+})
